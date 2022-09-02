@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Iidleuser } from 'src/app/interfaces/idleuser';
+import { IProject } from 'src/app/interfaces/project';
 import { ApiServiceService } from 'src/app/modules/auth/services/api.service.service';
+import { __importStar } from 'tslib';
 
 @Component({
   selector: 'app-new-task',
@@ -15,6 +17,8 @@ export class NewTaskComponent implements OnInit {
   form!:FormGroup
 
   emails!:Iidleuser[]
+  project!:IProject[]
+
 
   constructor(private fb:FormBuilder,private http:HttpClient,private apiService:ApiServiceService,private router:Router) { }
 
@@ -29,6 +33,20 @@ export class NewTaskComponent implements OnInit {
 
 
     })
+
+    this.apiService.getUserNoTask().subscribe(res=>{
+      console.log(res);
+
+      const users = res.filter((el)=>{
+       return el.email
+      })
+      this.emails = users
+    })
+
+  
+  }
+  assign(){
+    
   }
   onSubmit(){
     // console.log(this.form.value);
@@ -43,12 +61,10 @@ export class NewTaskComponent implements OnInit {
       
     })
 
-    this.apiService.getUserNoTask().subscribe(res=>{
-      console.log(res);
 
-    })
     
   }
+
   
 
 }

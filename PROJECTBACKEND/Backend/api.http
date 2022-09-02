@@ -1,0 +1,69 @@
+//create project
+
+POST http://localhost:5000/projects/createproject
+Content-Type: application/json
+
+{
+    "project_name":"react2",
+    "project_desc":"design interface",
+    "project_timeline":"30/08/2022"
+    
+    
+}
+###
+//get all projects
+GET http://localhost:5000/projects/getallprojects
+Content-Type: application/json
+
+###
+//delete project
+DELETE  http://localhost:5000/projects/deleteproject/1
+
+
+
+//users
+//register user
+###
+POST http://localhost:5000/users/registeruser
+Content-Type: application/json
+
+{
+    "username":"Jonathan",
+    "email":"jona@gmail.com",
+    "password":"12345678"  
+}
+###
+
+###login user
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    
+    "email":"lxwaihenya@gmail.com",
+    "password":"12345678"  
+}
+
+###redirect to homepage
+GET http://localhost:5000/users/homepage
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6IkRhbmllbCIsImVtYWlsIjoibHh3YWloZW55YUBnbWFpbC5jb20iLCJyb2xlIjoiZGJvIiwiaWF0IjoxNjYyMDMyMDY5LCJleHAiOjE2NjIwMzQwNjl9.TMM0Ftj8P_aAOVnHM1nCSnTflq30xFL46fyyZoJhuJM
+
+###check user
+GET http://localhost:5000/users/check
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6IkRhbmllbCIsImVtYWlsIjoibHh3YWloZW55YUBnbWFpbC5jb20iLCJyb2xlIjoiZGJvIiwiaWF0IjoxNjYyMDMyMDY5LCJleHAiOjE2NjIwMzQwNjl9.TMM0Ftj8P_aAOVnHM1nCSnTflq30xFL46fyyZoJhuJM
+
+### get all users
+GET http://localhost:5000/users/getallusers
+Content-Type: application/json
+
+###get users with no tasks
+GET http://localhost:5000/users/nullusers
+Content-Type: application/json
+
+### assigned project
+POST http://localhost:5000/users/assigned
+Content-Type: application/json
+
+### update complete
+POST http://localhost:5000/users/markdone
+Content-Type: application/json

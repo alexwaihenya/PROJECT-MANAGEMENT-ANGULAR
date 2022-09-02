@@ -30,4 +30,12 @@ export class ApiServiceService {
       return res
     }))
   }
+  assignProject(project:IProject){
+    return this.http.post<IProject>('http://localhost:5000/users/assigned',project)
+    .pipe(map((res)=>{
+      return res
+    }))
+    
+
+  }
 }

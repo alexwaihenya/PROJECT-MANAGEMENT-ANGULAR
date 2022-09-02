@@ -8,6 +8,7 @@
 
         <table>
             <tr>
+                <th>project id</th>
                 <th>project name</th>
                 <th>project description</th>
                 <th>project timeline</th>
@@ -17,6 +18,7 @@
 
             <tr *ngFor="let project of projects">
 
+                <td>{{project.project_id}}</td>
                 <td>{{project.project_name}}</td>
                 <td>{{project.project_desc}}</td>
                 <td>{{project.project_timeline}}</td>
