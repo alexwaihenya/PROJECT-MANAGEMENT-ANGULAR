@@ -1,0 +1,29 @@
+<!-- <p>register works!</p> -->
+
+<div class="container">
+    <h2>Register</h2>
+    <!-- <p>HELLO there!!</p> -->
+    <!-- <p>You need an account to continue</p> -->
+    <form class="form-style" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-control">
+            <label for="username">username</label>
+            <input type="text" formControlName="username">
+
+            <div>
+                <p class="error" *ngIf="!form.get('username')!.valid && form.get('username')!.touched">*please enter your name</p>
+            </div>
+
+        </div>
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email">
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="text" formControlName="password">
+        </div>
+
+        <button type="submit" [disabled]="!form.valid">REGISTER</button>
+    </form>
+</div>

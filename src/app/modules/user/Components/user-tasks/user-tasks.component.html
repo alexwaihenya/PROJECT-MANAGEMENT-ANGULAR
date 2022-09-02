@@ -1,0 +1,32 @@
+
+<div class="users" >
+
+    <div class="all-users">
+
+        <h4> User Task</h4>
+
+        <table>
+            <tr>
+                <th>username</th>
+                <th>email</th>
+                <!-- <th>project timeline</th> -->
+                <th>action</th>
+                
+            </tr>
+
+            <tr *ngFor="let user of users">
+
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <!-- <td>{{project.project_timeline}}</td> -->
+                <td><button class="btn" type="submit" (click)="update()">MarkDone</button></td>
+                
+            </tr>
+        </table>
+
+    </div>
+
+  
+
+
+</div>

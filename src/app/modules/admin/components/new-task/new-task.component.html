@@ -1,0 +1,39 @@
+
+
+<div class="container">
+    <h2>New Project</h2>
+ 
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-control">
+            <label for="projectname">Projectname</label>
+            <input type="text" formControlName="project_name">
+
+            <div>
+                <p class="error" *ngIf="!form.get('project_name')!.valid && form.get('project_name')!.touched">*please enter project name</p>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="projectdesc">Project description</label>
+            <textarea formControlName="project_desc" rows="3"></textarea>
+        </div>
+        <div class="form-control">
+            <label for="projecttimeline">Project timeline</label>
+            <input type="date" formControlName="project_timeline">
+        </div>
+
+        <div class="form-control">
+            <label for="assign">Assign</label>
+            <select formControlName="email">
+
+                <option value="email">select email to assign</option>
+                <option value *ngFor="let email of emails">{{email.email}}</option>
+
+            </select>
+
+        </div>
+
+
+        <button type="submit" [disabled]="!form.valid">Add</button>
+    </form>
+</div>

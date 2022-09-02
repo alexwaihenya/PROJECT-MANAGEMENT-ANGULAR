@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- <div class="nav-bar">
+        <div class="logo">
+            PRO.MAN
+
+        </div>
+
+
+        <div class="link">
+            <a href="">Notifications</a>
+    
+        </div>
+    
+        <div>
+            <button routerLink="admin/admin-dashboard">Logout</button>
+        </div>
+    </div> -->
+
+   <div class="admin-panel" >
+
+    <div>
+        <h3>Admin</h3>
+    </div>
+
+    <div>
+        <button  (click)="toggle()" routerLink="/admin/admin-dashboard/all">All Tasks</button>
+    </div>
+    <div>
+        <button  (click)="toggle()" routerLink="/admin/admin-dashboard/users">All Users</button>
+    </div>
+    <div>
+        <button  (click)="toggle()" routerLink="/admin/admin-dashboard/complete">Completed</button>
+    </div>    
+    <div>
+        <button (click)="toggle()" routerLink="/admin/admin-dashboard/progress">In Progress</button>
+    </div>    
+     <div>
+        <button  (click)="toggle()" routerLink="/admin/admin-dashboard/new">New Task</button>
+     </div>   
+     
+     
+   </div>
+
+   <div>
+    <router-outlet></router-outlet>
+
+   </div>
+
+
+
+   
+</div>
+
+

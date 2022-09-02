@@ -1,0 +1,40 @@
+
+
+<div class="projects" >
+
+    <div class="all-projects">
+
+        <h4>All projects</h4>
+
+        <table>
+            <tr>
+                <th>project name</th>
+                <th>project description</th>
+                <th>project timeline</th>
+                <th>action</th>
+                
+            </tr>
+
+            <tr *ngFor="let project of projects">
+
+                <td>{{project.project_name}}</td>
+                <td>{{project.project_desc}}</td>
+                <td>{{project.project_timeline}}</td>
+                <td><button class="btn" type="submit" (click)="delete()">DELETE</button></td>
+                
+            </tr>
+        </table>
+
+    </div>
+
+  
+
+
+</div>
+<!-- <ng-tempate #noProjects>
+
+    <p>No Available Projects!!!</p>
+
+</ng-tempate> -->
+
+
