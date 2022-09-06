@@ -65,5 +65,5 @@ POST http://localhost:5000/users/assigned
 Content-Type: application/json
 
 ### update complete
-POST http://localhost:5000/users/markdone
+GET http://localhost:5000/users/markdone
 Content-Type: application/json

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Iidleuser } from 'src/app/interfaces/idleuser';
 import { IProject } from 'src/app/interfaces/project';
 
@@ -15,27 +15,15 @@ export class ApiServiceService {
   createProject(project:IProject){
     return this.http.post<IProject>('http://localhost:5000/projects/createproject',project)
   }
-  getProject(){
+  getProject() :Observable<IProject[]>{
     return this.http.get<IProject[]>('http://localhost:5000/projects/getallprojects')
     .pipe(map((res)=>{
       return res
     }))
   }
-  deleteProject(project_id:number){
-    return this.http.post<IProject>('http://localhost:5000/projects/deleteproject',{project_id})
+  deleteProject(project_id:IProject):Observable<IProject>{
+    return this.http.get<IProject>(`http://localhost:5000/projects/deleteproject/${project_id}`)
   }
-  getUserNoTask(){
-    return this.http.get<Iidleuser[]>('http://localhost:5000/users/nullusers')
-    .pipe(map((res)=>{
-      return res
-    }))
-  }
-  assignProject(project:IProject){
-    return this.http.post<IProject>('http://localhost:5000/users/assigned',project)
-    .pipe(map((res)=>{
-      return res
-    }))
-    
-
-  }
+ 
+  
 }

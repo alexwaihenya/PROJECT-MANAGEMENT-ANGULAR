@@ -5,26 +5,34 @@
 
         <h4> User Task</h4>
 
-        <table>
+        <table >
             <tr>
-                <th>user_id</th>
-                <th>username</th>
-                <th>email</th>
+                <th>project_id</th>
+                <th>project_name</th>
+                <th>project_desc</th>
+                <th>Project_timeline</th>
                 <th>action</th>
+
                 
                 
             </tr>
 
-            <tr *ngFor="let user of users">
+            <tr *ngFor="let project of assignedProjects">
 
                
-                <td>{{user.user_id}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-                <td><button class="btn" type="submit" (click)="update()">MarkDone</button></td>
+                <td>{{project.project_id}}</td>
+                <td>{{project.project_name}}</td>
+                <td>{{project.project_desc}}</td>
+                <td>{{project.project_timeline}}</td>
+                <td><button class="btn" type="submit" (click)="update(project.project_id)">MarkDone</button></td>
                 
             </tr>
         </table>
+
+        <ng-template #noTask>
+            No tasks available!!!
+
+        </ng-template >
 
     </div>
 

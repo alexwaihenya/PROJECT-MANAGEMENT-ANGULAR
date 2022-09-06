@@ -17,9 +17,9 @@ export class NavbarComponent implements OnInit {
   // onClick(){
   //   this.router.navigate(['home/login'])
   // }
-  // onLogout(){
-  //   localStorage.clear()
-  //   this.router.navigate(['home'])
-  // }
+  onLogout(){
+    localStorage.clear()
+    this.router.navigate([''])
+  }
 
 }

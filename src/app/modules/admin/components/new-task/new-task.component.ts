@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Iidleuser } from 'src/app/interfaces/idleuser';
 import { IProject } from 'src/app/interfaces/project';
 import { ApiServiceService } from 'src/app/modules/auth/services/api.service.service';
+import { ApiUserService } from 'src/app/modules/auth/services/api.user.service';
 import { __importStar } from 'tslib';
 
 @Component({
@@ -20,7 +21,7 @@ export class NewTaskComponent implements OnInit {
   project!:IProject[]
 
 
-  constructor(private fb:FormBuilder,private http:HttpClient,private apiService:ApiServiceService,private router:Router) { }
+  constructor(private fb:FormBuilder,private http:HttpClient,private apiService:ApiUserService,private router:Router,private apiService1:ApiServiceService) { }
 
   ngOnInit(): void {
 
@@ -34,20 +35,22 @@ export class NewTaskComponent implements OnInit {
 
     })
 
-    this.apiService.getUserNoTask().subscribe(res=>{
-      console.log(res);
+    this.getUserNoTask()
 
-      const users = res.filter((el)=>{
-       return el.email
-      })
-      this.emails = users
-    })
+
 
   
   }
-  assign(){
-    
+  getUserNoTask(){
+    return this.apiService.getUserNoTask().subscribe(res=>{
+      const users = res.filter((el)=>{
+        return el.email
+       })
+       this.emails = users
+    })
   }
+
+
   onSubmit(){
     // console.log(this.form.value);
     
@@ -55,7 +58,7 @@ export class NewTaskComponent implements OnInit {
       form: this.form.value
     }
 
-    this.apiService.createProject(object.form).subscribe(res=>{
+    this.apiService1.createProject(object.form).subscribe(res=>{
       console.log(res);
       this.router.navigate(['admin/admin-dashboard/all'])
       

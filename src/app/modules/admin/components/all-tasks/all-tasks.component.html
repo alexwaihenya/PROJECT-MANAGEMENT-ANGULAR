@@ -22,7 +22,7 @@
                 <td>{{project.project_name}}</td>
                 <td>{{project.project_desc}}</td>
                 <td>{{project.project_timeline}}</td>
-                <td><button class="btn" type="submit" (click)="delete()">DELETE</button></td>
+                <td><button class="btn" type="submit" (click)="delete(project.project_id)">DELETE</button></td>
                 
             </tr>
         </table>

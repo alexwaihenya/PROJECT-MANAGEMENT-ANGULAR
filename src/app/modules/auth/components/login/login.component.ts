@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm,  } from '@angular/forms';
-import { ViewChild } from '@angular/core';
 import { IUser } from 'src/app/interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { ApiUserService } from '../../services/api.user.service';
@@ -31,18 +29,30 @@ export class LoginComponent implements OnInit {
 
     if(val.email && val.password){
       this.apiService.login(val.email,val.password)
-      .subscribe(()=>{
-        console.log('user logged in...');
-        this.router.navigate(['user/usertasks'])
-        
+      .subscribe((res)=>{
+        // localStorage.setItem('token')
+        // this.checkUserRole()
+        // console.log('user logged in...');
+        this.router.navigate(['user/usertasks']) 
+      })
+      setTimeout(()=>{
+        // this.redirect()
       })
     }
 
-
-    
-
   
   }
+  checkUserRole(){
+    this.apiService.checkUser().subscribe(res=>{
+      console.log(res);
+      
+    })
+  }
+
+  redirect(){
+
+  }
+
  
 
 }

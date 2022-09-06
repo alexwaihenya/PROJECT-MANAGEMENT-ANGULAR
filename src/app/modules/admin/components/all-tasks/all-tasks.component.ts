@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 import { IProject } from 'src/app/interfaces/project';
 import { ApiServiceService } from 'src/app/modules/auth/services/api.service.service';
 
@@ -31,7 +32,12 @@ export class AllTasksComponent implements OnInit {
 
 
   }
-  delete(){
+  delete(project_id:any){
+    this.apiService.deleteProject(project_id).pipe(tap(val=>{
+      
+    })
+
+    )
     
   }
  

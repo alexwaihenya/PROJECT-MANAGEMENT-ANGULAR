@@ -5,7 +5,7 @@ import { VerifyToken } from "../Middleware/VeriftToken";
 const router1 = Router()
 router1.post('/registeruser',register)
 router1.post('/login',login)
-router1.post('/markdone',updateComplete)
+router1.get('/markdone',updateComplete)
 router1.post('/assigned', checkAssigned)
 router1.get("/getallusers",getAllUsers)
 router1.get('/nullusers', pendingUsers)
